@@ -1,0 +1,144 @@
+goto github.com
+	create an account
+	create a new repository 
+
+You should have git installed on your local machine.
+To verify it, run git --version on the command prompt
+
+Goto your project folder (very important)
+	follow the steps given by the github
+	Replace "git add README.md" with "git add ."
+
+To download the files
+	git clone https://github.com/alaksandarjesus/angular-2-practise.git
+	npm install //to load the libraries
+
+
+
+Angular
+
+	Webpage -> html to html (traditional)
+				navbar
+				slideshow
+				advt content
+				what say about us
+				footer
+			-> splitting into multiple templates
+				-> navbar -template -> components -> angular 1 directive
+				->slideshow->template
+				->advt template
+				-> what say about us -> template
+				-> footer
+				-> contact us form
+			 -> address bar is mapping to home page
+			 		-> navbar
+			 			slideshow
+			 			advt
+			 			what say about us
+			 			footer
+			 -> address bar is mapping to contact us page	
+			 	->navbar
+			 	->contact us form
+			 	-> footer
+
+
+Life cycles
+	->before your component is loaded -> constructor
+	->after your component is initiallized -> component is initialized
+	-> any changes on the inputs to your component ->
+	-> before you component is destroyed ->
+
+
+Any global styles should be written on the style.css file
+Any local styles (belongs to the component) write it in specific folder css file
+
+
+
+1. Binding text -> {{}}
+2. Binding HTML text -> [innerHTML]
+3. Two way binding -> [(ngModel)]
+4. visibility -> [hidden], *ngIf->highest priority for rendering
+5. ngClass -> load the class dynamically
+			-> [ngClass]="{'blue':changeColor}" -> class:condition
+			-> [ngClass]="changeColor?'blue':'red'" -> short if -> condn?true:false
+6. capturing events => (eventName) = "function to run on the event occurence"
+		->click
+		->blur
+		->focus
+		->change
+
+7. *ngFor -> equivalent to ng-repeat in angular 1
+			-> *ngFor="let student of students"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

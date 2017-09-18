@@ -1,3 +1,63 @@
 <h1>
-    {{title}}
+    {{string1}}
 </h1>
+
+<div [innerHTML]="string2"></div>
+
+<p><input type="text" [(ngModel)]="value1"></p>
+
+<p [hidden]="hidePara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptatem dolore consequuntur sapiente veritatis, iste consequatur consectetur libero porro. Ad totam ea, doloribus tenetur quod accusantium molestias enim fugiat tempore.</p>
+
+<p *ngIf="!hidePara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque minus ratione placeat, similique maiores sunt soluta at dolor est magnam autem voluptas libero facilis vitae, commodi veniam officiis. Ipsum, porro.</p>
+
+<p *ngIf="strings && strings.number3">{{strings.number3}}</p>
+
+<p class="red" [ngClass]="{'blue':changeColor}">Error text here</p>
+
+
+<p [ngClass]="changeColor?'blue':'red'">Error text here</p>
+
+<button class="" type="button" (click)="onBtnClick($event)">Click Here</button>
+
+<ul>
+	<li *ngFor="let student of students">{{student.fname}}</li>
+</ul>
+
+<div>
+	<p><input type="text" [(ngModel)]="filterStd"></p>
+	<ul>
+		<ng-container *ngIf="students.length">
+	<li *ngFor="let student of getStudents()" >{{student.fname}}</li>
+</ng-container>
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
