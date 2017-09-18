@@ -1,0 +1,8 @@
+importing 3rd party libraries
+->angular-cli.json
+	"styles": [
+        "styles.css"
+      ],
+      "scripts": [],
+
+ -> ng build
