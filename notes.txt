@@ -1,0 +1,7 @@
+communicating between controllers
+option1:- using decorators
+	-> input -> decorator @ ->[]
+	-> output -> ()
+option2 - using shared service
+
+pass username from app.component.ts to home.component.ts and populate in home.component.html
