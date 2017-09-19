@@ -5,4 +5,5 @@ importing 3rd party libraries
       ],
       "scripts": [],
 
- -> ng build
+ -> ng build -> production -> final website
+ -> ng serve -> development
