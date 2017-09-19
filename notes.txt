@@ -7,3 +7,22 @@ importing 3rd party libraries
 
  -> ng build -> production -> final website
  -> ng serve -> development
+
+ -> To create todos application
+ 	-> To create student database -> we created in jquery
+
+
+ 	To make an api call
+ 		-> create a service
+ 		-> import that service to your ts file
+ 		-> add provider
+ 		-> inject service into construct private shortname:Servicename
+
+ 		-> subscribe -> when there is an change in the tracked call
+ 		-> and observable->track of any call
+
+
+ Working with environment
+ 	-> development -> seperate server
+ 	-> testing-> seperate server
+ 	-> production -> seperate server
