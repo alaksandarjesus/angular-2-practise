@@ -13,6 +13,7 @@ export class TodosComponent implements OnInit {
 
   modal:boolean = false;
   todos:any = [];
+  todo:any;
   constructor(private ts:TodosService) { }
 
   ngOnInit() {
@@ -41,7 +42,15 @@ export class TodosComponent implements OnInit {
   }
 
   openModal(){
+    this.todo = null;
   	this.modal = true;
+  }
+
+  update(todo){
+    console.log("todo", todo);
+    this.modal = true;
+    this.todo = _.clone(todo); //to understand why to use _.clone, remove the clone and check the changes again in the browser
+
   }
 
   onModalClose(){
@@ -53,23 +62,101 @@ export class TodosComponent implements OnInit {
   	console.log("Modal is closed, but send data to server to save");
   	console.log("data", data);
   	data.marker = "alaksandarjesus";
-  	this.ts.create(data).subscribe(
-  		(data) => this.onModalSaveSuccess(data),
-  		(error) => this.onModalSaveError(error)
-  		)
+    if(!data.id){ // for new todo, there will be no id
+      this.ts.create(data).subscribe(
+      (data) => this.onCreateSuccess(data),
+      (error) => this.onCreateError(error)
+      )
+    }else{
+      this.ts.update(data).subscribe(
+      (data) => this.onUpdateSuccess(data),
+      (error) => this.onUpdateError(error)
+      )
+    }
+  	
   		this.modal = false;
   }
 
-  onModalSaveSuccess(data){
+  onCreateSuccess(data){
   	//processing of your data - 100 lines of code 
   	this.todos.push(data)
   }
 
-  onModalSaveError(error){
+  onCreateError(error){
   	console.log(error);
   }
 
+  onUpdateSuccess(data){
+    console.log(data)
+    //javascript
+
+    // for(var i =0 ; i < this.todos.length; i++){
+    //   if(this.todos[i].id == data.id){
+    //     console.log(this.todos[i])
+    //     this.todos[i] = data;
+    //   }
+
+    // }
+
+//lodash way to update data
+    let getIndexOfRow = _.findIndex(this.todos, {id:data.id});
+    this.todos.splice(getIndexOfRow, 1, data);
+
+
+  }
+
+  onUpdateError(data){
+
+  }
+
+  remove(data){
+    let confirmDelete = confirm("Are you sure if you want to delete task " + data.task);
+    if(confirmDelete){
+      this.ts.remove(data).subscribe(
+           (response) => this.onRemoveSuccess(response, data),
+           (error) => this.onRemoveError(error)
+      )
+    }
+  }
+
+  onRemoveSuccess(response, data){
+    //javascript
+    // console.log(this.todos);
+    // for(var i =this.todos.length-1; i >= 0; i--){
+    //   if(this.todos[i].id == data.id){
+    //     //delete this.todos[i];
+    //     this.todos.splice(i,1);
+    //   }
+    // }
+
+    //lodash
+    // _.remove(this.todos, (todo)=>{
+    //   return todo.id == data.id
+    // });
+
+    _.remove(this.todos, (todo)=> todo.id == data.id);
+
+  }
+
+  onRemoveError(error){
+
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

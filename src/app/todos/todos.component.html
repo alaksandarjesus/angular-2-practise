@@ -20,10 +20,10 @@
 					<td>{{todo.created_at}}</td>
 					<td>{{todo.updated_at}}</td>
 					<td>
-						<button class="btn btn-sm btn-danger cursor-pointer" type="button">
+						<button class="btn btn-sm btn-danger cursor-pointer" type="button" (click)="remove(todo)">
 							<span class="fa fa-trash"></span>
 						</button>
-						<button class="btn btn-sm btn-warning cursor-pointer" type="button">
+						<button class="btn btn-sm btn-warning cursor-pointer" type="button" (click)="update(todo)">
 							<span class="fa fa-upload"></span>
 						</button>
 					</td>
@@ -34,7 +34,7 @@
 </div>
 
 
-<app-modal *ngIf="modal" (onModalClose)="onModalClose()" (onModalSave)="onModalSave($event)"></app-modal>
+<app-modal *ngIf="modal" [todo]="todo" (onModalClose)="onModalClose()" (onModalSave)="onModalSave($event)"></app-modal>
 
 
 

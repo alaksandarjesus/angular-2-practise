@@ -22,8 +22,19 @@ export class TodosService {
   create(inputs:any): Observable<any> {
     return this.http.post(environment.api+"/todos", inputs)
     			.map(this.extractData) //success
-    			.catch(this.handleError) //error
-                    
+    			.catch(this.handleError) //error               
+  }
+
+  update(inputs:any): Observable<any> {
+    return this.http.put(environment.api+"/todos/"+inputs.id, inputs)
+          .map(this.extractData) //success
+          .catch(this.handleError) //error               
+  }
+
+  remove(inputs:any): Observable<any> {
+    return this.http.delete(environment.api+"/todos/"+inputs.id)
+          .map(this.extractData) //success
+          .catch(this.handleError) //error               
   }
 
   private extractData(res: Response) {

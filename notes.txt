@@ -23,6 +23,6 @@ importing 3rd party libraries
 
 
  Working with environment
- 	-> development -> seperate server
- 	-> testing-> seperate server
- 	-> production -> seperate server
+ 	-> development -> seperate   :3000
+ 	-> testing-> seperate server :4200
+ 	-> production -> seperate server :5000
