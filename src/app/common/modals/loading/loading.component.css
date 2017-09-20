@@ -1,0 +1,9 @@
+#loadingModal{
+
+
+}
+
+#loadingModal .modal-content{
+    width: 50px;
+    margin: 100% auto;
+}

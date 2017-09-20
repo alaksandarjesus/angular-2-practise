@@ -3,7 +3,10 @@
 		<div class="col-sm-12 mt-4">
 		<button class="btn btn-primary btn-md float-right" type="button" (click)="openModal()">Create</button>
 		</div>
-		<table class="table table-striped table-bordered mt-4">
+		<div class="alert alert-danger w-100 mt-4" *ngIf="!todos.length">
+			<strong>Notification</strong> You dont have any tasks currently in your account.
+		</div>
+		<table class="table table-striped table-bordered mt-4" *ngIf="todos.length">
 			<thead>
 				<tr>
 					<th>S.No</th>
@@ -17,8 +20,8 @@
 				<tr>
 					<td>{{i+1}}</td>
 					<td>{{todo.task}}</td>
-					<td>{{todo.created_at}}</td>
-					<td>{{todo.updated_at}}</td>
+					<td>{{todo.created_at |moments:'format':'DD/MMM/YYYY'}}</td>
+					<td>{{todo.updated_at | moments:'fromNow'}}</td>
 					<td>
 						<button class="btn btn-sm btn-danger cursor-pointer" type="button" (click)="remove(todo)">
 							<span class="fa fa-trash"></span>
@@ -37,6 +40,9 @@
 <app-modal *ngIf="modal" [todo]="todo" (onModalClose)="onModalClose()" (onModalSave)="onModalSave($event)"></app-modal>
 
 
+<app-confirm *ngIf="confirmAction" [text]="confirmText" (onYes)="onYes()" (onNo)="onNo()"></app-confirm>
+
+<!-- <app-loading *ngIf="loading" [show]="loading"></app-loading> -->
 
 
 

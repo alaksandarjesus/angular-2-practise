@@ -6,12 +6,18 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { ModalComponent } from './todos/modal/modal.component';
+import { ConfirmComponent } from './common/modals/confirm/confirm.component';
+import { LoadingComponent } from './common/modals/loading/loading.component';
+import { MomentsPipe } from './pipes/moments.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    ModalComponent
+    ModalComponent,
+    ConfirmComponent,
+    LoadingComponent,
+    MomentsPipe
   ],
   imports: [
     BrowserModule,

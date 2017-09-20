@@ -12,8 +12,12 @@ declare var _:any;
 export class TodosComponent implements OnInit {
 
   modal:boolean = false;
+  confirmAction:boolean = false;
+  confirmText:string;
   todos:any = [];
   todo:any;
+  temp:any;
+  loading:any;
   constructor(private ts:TodosService) { }
 
   ngOnInit() {
@@ -22,9 +26,11 @@ export class TodosComponent implements OnInit {
 
 
   getTodos(){
+    this.loading = true;
   	this.ts.getAll().subscribe(
-  		(data) => this.onGetAllSuccess(data),
-  		(error) => this.onGetAllError(error)
+  		(data) => this.onGetAllSuccess(data), //for success
+  		(error) => this.onGetAllError(error), // for error
+      ()=>this.loading = false //for complete means either sucess or error
   		)
   }
 
@@ -110,15 +116,31 @@ export class TodosComponent implements OnInit {
   }
 
   remove(data){
-    let confirmDelete = confirm("Are you sure if you want to delete task " + data.task);
-    if(confirmDelete){
-      this.ts.remove(data).subscribe(
-           (response) => this.onRemoveSuccess(response, data),
+    this.confirmAction = true;
+    this.confirmText = "Are you sure if you want to delete task " + data.task;
+    this.temp = data;
+    // let confirmDelete = confirm("Are you sure if you want to delete task " + data.task);
+    // if(confirmDelete){
+    //   this.ts.remove(data).subscribe(
+    //        (response) => this.onRemoveSuccess(response, data),
+    //        (error) => this.onRemoveError(error)
+    //   )
+    // }
+  }
+  onYes(){
+    this.ts.remove(this.temp).subscribe(
+           (response) => this.onRemoveSuccess(response, this.temp),
            (error) => this.onRemoveError(error)
       )
-    }
+    this.confirmAction = false;
+    this.confirmText = null;
   }
-
+  onNo(){
+    console.log("modal closed")
+    this.confirmAction = false;
+    this.confirmText = null;
+    this.temp = null;
+  }
   onRemoveSuccess(response, data){
     //javascript
     // console.log(this.todos);
@@ -135,6 +157,7 @@ export class TodosComponent implements OnInit {
     // });
 
     _.remove(this.todos, (todo)=> todo.id == data.id);
+    this.temp =null;
 
   }
 

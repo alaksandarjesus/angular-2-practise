@@ -26,3 +26,40 @@ importing 3rd party libraries
  	-> development -> seperate   :3000
  	-> testing-> seperate server :4200
  	-> production -> seperate server :5000
+
+
+
+javascript will keep a relationship between your copied variables
+	-> to seperate the copied object relationship -> use JSON.parse and JSON.stringify
+	-> angular.copy() //angular 1
+	-> lodash -> _.clone and _.cloneDeep(nested object)
+
+
+
+->pipes -> filter in angular 1 -> change the data to be displayed
+	-> how to use moment js and how to use pipes
+
+	Angular js + lodash + momentjs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
