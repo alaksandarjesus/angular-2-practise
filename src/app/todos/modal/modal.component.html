@@ -12,16 +12,16 @@
       <div class="modal-body">
         <div class="form-group">
         	<label for="" class="form-control-label">Task</label>
-        	<input type="text" class="form-control" [(ngModel)]="inputs.task">
+        	<input type="text" class="form-control" appOnlyNumbers [(ngModel)]="inputs.task" (keyup)="validate()">
         </div>
         <div class="form-group">
         	<label for="" class="form-control-label">Description</label>
-        	<textarea class="form-control" [(ngModel)]="inputs.description"></textarea>
+        	<textarea class="form-control" [(ngModel)]="inputs.description" (keyup)="validate()"></textarea>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
-        <button type="button" class="btn btn-primary" (click)="save()">Save changes</button>
+        <button type="button" class="btn btn-primary" (click)="save()" [disabled]="validForm()">Save changes</button>
       </div>
     </div>
   </div>

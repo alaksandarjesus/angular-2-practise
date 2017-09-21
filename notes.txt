@@ -41,7 +41,16 @@ javascript will keep a relationship between your copied variables
 
 	Angular js + lodash + momentjs
 
+-----------------------------------------------------------------------------------
+Task 1 : to search and filter (pending is sort)
+Task 2 : use directives and write validation
+Task 3 : routing
 
+
+on filtering,
+
+	text.indexOf(string) != -1 // will search whether the string is part of text
+	text.indexOf(string) == 0 // will search whether the string starts from the text
 
 
 

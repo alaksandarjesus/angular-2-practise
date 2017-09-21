@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'; //keep a track of the call
 import { Headers, Http, Response, RequestOptions } from '@angular/http'; // make http calls
 import 'rxjs/add/operator/catch'; // to capture data on error
 import 'rxjs/add/operator/map'; //to capture data on success
-
+import { Todos } from '../interfaces/todos';
 import { environment } from '../../environments/environment'
 
 @Injectable()
@@ -12,7 +12,7 @@ export class TodosService {
 	
   constructor(private http: Http) { }
 
-  getAll():Observable<any>{
+  getAll():Observable<Todos>{
   	return this.http.get(environment.api+"/todos")
   				.map(this.extractData) //success
     			.catch(this.handleError) //error

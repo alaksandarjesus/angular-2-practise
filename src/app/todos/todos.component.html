@@ -1,8 +1,14 @@
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12 mt-4">
-		<button class="btn btn-primary btn-md float-right" type="button" (click)="openModal()">Create</button>
+	<div class="row mt-4">
+			<div class="col-sm-4">
+		<div class="form-group">
+			<input type="text" placeholder="search" [(ngModel)]="search" class="form-control">
 		</div>
+	</div>
+	<div class="col-sm-8">
+		<button class="btn btn-primary btn-md float-right" type="button" (click)="openModal()">Create</button>
+	</div>
+	
 		<div class="alert alert-danger w-100 mt-4" *ngIf="!todos.length">
 			<strong>Notification</strong> You dont have any tasks currently in your account.
 		</div>
@@ -16,7 +22,9 @@
 					<th></th>
 				</tr>
 			</thead>
-			<tbody *ngFor="let todo of todos; let i = index">
+			<!-- <tbody *ngFor="let todo of todos |filter:{'task':search}; let i = index"> -->
+			<tbody *ngFor="let todo of filter(todos); let i = index">
+
 				<tr>
 					<td>{{i+1}}</td>
 					<td>{{todo.task}}</td>

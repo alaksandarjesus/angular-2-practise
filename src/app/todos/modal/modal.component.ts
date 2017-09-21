@@ -15,6 +15,7 @@ export class ModalComponent implements OnInit {
   @Output() onModalSave = new EventEmitter<any>();
 
   inputs:any = {task:"", description:""};
+  isFormValid:boolean = false;
   
   constructor() { }
 
@@ -43,4 +44,42 @@ export class ModalComponent implements OnInit {
    // this.inputs = {};
   }
 
+  validate(){
+    this.isFormValid = false;
+    // if(!this.inputs.task) this.isFormValid = false;
+    // else this.isFormValid = true;
+    // if(!this.inputs.description)  this.isFormValid = false;
+    // else this.isFormValid = true;
+    if(this.inputs.task && 
+        this.inputs.description && 
+        this.inputs.task.length > 3 && 
+        this.inputs.description.length > 10) this.isFormValid = true;
+ 
+  }
+
+validForm(){
+  if(this.inputs.task && 
+        this.inputs.description && 
+        this.inputs.task.length > 3 && 
+        this.inputs.description.length > 10) return false;
+    return true;
 }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

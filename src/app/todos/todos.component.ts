@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../services/todos.service';
-
+import { Todos } from '../interfaces/todos';
 declare var _:any;
 
 @Component({
@@ -18,6 +18,7 @@ export class TodosComponent implements OnInit {
   todo:any;
   temp:any;
   loading:any;
+  search:string = '';
   constructor(private ts:TodosService) { }
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class TodosComponent implements OnInit {
   		)
   }
 
-  onGetAllSuccess(data){
+  onGetAllSuccess(data:Todos){
   	//processing
   	//_ filter -> array of object with matching values and returns as an array
   	this.todos = _.filter(data, (todo)=>{
@@ -45,6 +46,13 @@ export class TodosComponent implements OnInit {
 
   onGetAllError(error){
   	console.log(error)
+  }
+  filter(todos){
+    if(_.isEmpty(this.search)) return todos;
+    return _.filter(todos, (todo)=>{
+      
+      return _.lowerCase(todo.task).indexOf(_.lowerCase(this.search)) == 0;
+    });
   }
 
   openModal(){
