@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+	<div class="form-group">
+		<label for="" class="form-control-label">Username</label>
+		<input type="text" class="form-control" [(ngModel)]="user.username" name="username" required #username="ngModel" minlength="3"  pattern="[0-9a-zA-Z]*" appMaxlength="10" [ngClass]="{'is-invalid':(username.dirty || username.touched) && username.invalid}">
+		<div class="form-control-text text-danger" *ngIf="username.invalid && username.errors && (username.dirty || username.touched)">
+			<span *ngIf="username.errors.required">Username is required</span>
+			<span *ngIf="username.errors.minlength">Min username is 3 characters</span>
+			<span *ngIf="username.errors.pattern">Pattern mismatch</span>
+			<span *ngIf="username.errors.appMaxlength">Maximum 10 characters allowed</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="form-control-label">Password</label>
+		<input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+	</div>
+	<button type="submit" class="btn btn-primary btn-md float-right" [disabled]="loginForm.form.invalid">Login</button>
+</form>

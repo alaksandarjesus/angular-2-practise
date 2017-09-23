@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm" novalidate>
+  <div class="form-group">
+    <label class="form-control-label">Username: </label>
+      <input class="form-control" formControlName="username">
+      <div class="form-control-text text-danger" *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].errors && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+			<span *ngIf="loginForm.controls['username'].errors.required">Username is required</span>
+      <span *ngIf="loginForm.controls['username'].errors.minlength">Username is not less than 3 characters</span>
+		</div>
+  </div>
+  <div class="form-group">
+    <label class="form-control-label">Password: </label>
+      <input class="form-control" formControlName="password">
+  </div>
+  <button type="submit" class="btn btn-primary btn-md float-right" [disabled]="loginForm.invalid" >Login</button>
+</form>
