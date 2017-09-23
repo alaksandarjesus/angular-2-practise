@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ProgressBarModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
@@ -15,6 +17,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { StudentsComponent } from './students/students.component';
 import { HomeComponent } from './home/home.component';
+import { ProgressbarComponent } from './common/progressbar/progressbar.component';
 
 let appRoutes = [
   {
@@ -44,11 +47,16 @@ let appRoutes = [
     FilterPipe,
     OnlyNumbersDirective,
     StudentsComponent,
-    HomeComponent
+    HomeComponent,
+    ProgressbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ProgressBarModule,
+    NgbModule.forRoot(),
     HttpModule,
     RouterModule.forRoot(appRoutes)
     

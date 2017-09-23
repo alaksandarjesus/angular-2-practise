@@ -53,7 +53,10 @@ on filtering,
 	text.indexOf(string) == 0 // will search whether the string starts from the text
 
 
-
+create a progress bar and implement it as a common component
+1. We write the code -> 
+2. Implement bootstrap progress bar -> stylings -> all your webpages will be with same color
+3. Implement the 3rd party plugin primefaces.. -> they wont be compatible with bootstrap or your custom styings
 
 
 

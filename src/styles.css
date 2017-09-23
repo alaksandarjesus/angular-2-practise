@@ -2,3 +2,9 @@
 .cursor-pointer{
 	cursor: pointer;
 }
+
+p-progressbar .ui-progressbar .ui-progressbar-value{
+	
+	    border: 1px solid #007bff!important;;
+    background: #007bff!important;;
+}

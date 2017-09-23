@@ -3,5 +3,42 @@
 		<div class="alert alert-success w-100">
 			<strong>Yet to code</strong>. Task on angular 2 development for home
 		</div>
+		<div class="col-sm-4">
+		<h4>Template Driven Forms</h4>
+		<div class="form-group">
+			<label for="" class="form-control-label">Username</label>
+			<input type="text" [(ngModel)]="username" class="form-control">
+		</div>
+		<h4>Reactive From</h4>
+			<p>.........</p>
+	</div>
+	<div class="col-sm-8 mt-4">
+		
+		<app-progressbar [now]="10" class="mb-4 d-block"></app-progressbar>
+		<app-progressbar [now]="20" class="mb-4 d-block"></app-progressbar>
+		<app-progressbar [now]="30" class="mb-4 d-block"></app-progressbar>
+		<app-progressbar [now]="40" class="mb-4 d-block"></app-progressbar>
+
+	</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="startdate" ngbDatepicker #d="ngbDatepicker">
+      <button class="input-group-addon" (click)="d.toggle()" type="button">
+       <span class="fa fa-calendar"></span>
+      </button>
+    </div>
+  </div>
+</form>
+
+<hr/>
+<pre>Model: {{ startdate | json }}</pre>
+		</div>
+
 	</div>
 </div>
